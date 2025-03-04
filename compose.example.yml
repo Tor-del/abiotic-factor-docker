@@ -1,0 +1,53 @@
+name: abiotic
+services:
+  abiotic:
+    container_name: abiotic
+    image: tordel/abiotic:latest
+    restart: unless-stopped
+
+    user: 1000:1000
+
+    tty: false
+    read_only: false
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "1"
+    mem_limit: 5g
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+      - abiotic_cache:/app:rw
+      - abiotic_data:/data:rw
+    environment:
+      - MaxServerPlayers=6
+      - Port=7777
+      - QueryPort=27015
+      - ServerPassword=555
+      - SteamServerName=Server
+      - WorldSaveName=Cascade
+      - AutoUpdate=true
+    ports:
+      - 7777:7777/udp
+      - 27015:27015/udp
+    networks:
+      - abiotic_net
+    #   - traefik_net
+volumes:
+  abiotic_cache:
+    name: abiotic_cache
+    driver: local
+  abiotic_data:
+    name: abiotic_data
+    driver: local
+networks:
+  abiotic_net:
+    name: abiotic_net
+    driver: bridge
