@@ -30,7 +30,7 @@ services:
       - MaxServerPlayers=6
       - Port=7777
       - QueryPort=27015
-      - ServerPassword=555
+      - ServerPassword=password
       - SteamServerName=Server
       - WorldSaveName=Cascade
       - AutoUpdate=true
