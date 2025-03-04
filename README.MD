@@ -2,6 +2,8 @@
 
 This document provides an overview of setting up the Abiotic Factor server using Docker.
 
+> **Note:** The image will not work in Windows systems.
+
 ## Running in docker compose
 
 You can use the provided `compose.example.yml` file to run the server in a `docker-compose` environment. To do so, follow these steps:
@@ -21,7 +23,6 @@ You can use the provided `compose.example.yml` file to run the server in a `dock
    ```
 
 > **Note:** The `compose.example.yml` file contains the default configuration for the server. You can modify the file to customize the server setup according to your requirements.
-> **Note:** The image will not work in Windows systems.
 
 ## Running in docker
 
@@ -70,7 +71,6 @@ The following environment variables can be configured to customize your server s
 - **AutoUpdate**: Enable or disable automatic updates for the server. Default is `true`.
 - **GID**: Group ID for the server. Default is `1000`.
 - **UID**: User ID for the server. Default is `1000`.
-
 
 ## You can also use this image
 
