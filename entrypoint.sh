@@ -49,10 +49,7 @@ elif [[ $AutoUpdate == "true" ]]; then
     echo "Server update complete"
 fi
 
-# -log \
-# -newconsole \
-
-wine "$ServerExecutable" \
+/usr/lib/wine/wine64 "$ServerExecutable" \
     -useperfthreads \
     -NoAsyncLoadingThread \
     -MaxServerPlayers="$MaxServerPlayers" \
